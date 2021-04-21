@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <script src="https://dash.generalassemb.ly/assets/jquery.js"></script>
+     <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+ <style>
+ h1 {
+ font-family: 'Titillium Web', sans-serif;
+ }
+ p {
+  font-family: 'Titillium Web', sans-serif;
+ }
+.div {
+  font-family: 'Titillium Web', sans-serif;
+ }
+ </style>
+ </head>
+ <body>
+ <h1>Kook-App</h1> 
+ <p>Voer hier je eerste ingredient in</p>
+ <div>
+ <input type="text" placeholder="Ingedient 1">
+ </div>
+ <p> Voer hier je tweede ingredient in</p>
+ <div>
+ <input type="text" placeholder="Ingedient 2">
+ </div>
+ <p>Voer hier wat je met de ingredienten wil doen<p>
+ <div>
+ <input type="text" placeholder="Actie">
+ </div>
+ <p>Voer hier in hoe lang je dit wil doen</p>
+ <div>
+ <input type="text" placeholder="Ingedient 2">
+ </div>
+ 
+ <div>
+ <input type="submit">
+ </div>
+ </body>
+ <script>
+  
+ </script>
+ </html>
