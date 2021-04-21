@@ -1,44 +1,81 @@
 <!DOCTYPE html>
-<html>
- <head>
-  <script src="https://dash.generalassemb.ly/assets/jquery.js"></script>
-     <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
- <style>
- h1 {
- font-family: 'Titillium Web', sans-serif;
- }
- p {
-  font-family: 'Titillium Web', sans-serif;
- }
-.div {
-  font-family: 'Titillium Web', sans-serif;
- }
- </style>
- </head>
- <body>
- <h1>Kook-App</h1> 
- <p>Voer hier je eerste ingredient in</p>
- <div>
- <input type="text" placeholder="Ingedient 1">
- </div>
- <p> Voer hier je tweede ingredient in</p>
- <div>
- <input type="text" placeholder="Ingedient 2">
- </div>
- <p>Voer hier wat je met de ingredienten wil doen<p>
- <div>
- <input type="text" placeholder="Actie">
- </div>
- <p>Voer hier in hoe lang je dit wil doen</p>
- <div>
- <input type="text" placeholder="Ingedient 2">
- </div>
- 
- <div>
- <input type="submit">
- </div>
- </body>
- <script>
-  
- </script>
- </html>
+
+<head>
+<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<style>
+body {
+ text-align: center;
+ font-family: 'fjalla One';
+ font-size: 20px;
+ background: #e6eaf0;
+}
+button {
+  margin: 40px;
+}
+input {
+  font-size: 24px;
+}
+.fill {
+  background: white;
+  color: red;
+  border-bottom: 2px black solid;
+  font-family: 'Shadows Into Light';
+  padding: 0 6px;
+  margin: 4px;
+}
+</style>
+</head>
+
+<body>
+<div class="prompt"></div>
+<button>Next</button>
+<script type="text/javascript">
+// List of prompts for the user
+var prompts = [
+	'Voer uw eerste ingredient in',
+	'Voer uw tweede ingredient in',
+	'Voer de actie in',
+	'Voer de tijdsduur in'
+   ];
+
+var answers=[];
+// op welke prompt
+var currentPrompt = 0;
+
+// A function that will call the next prompt
+var nextPrompt = function() {
+  //if there's no answer in the form
+  if (currentPrompt !=0){
+    answers.push($('input').val());
+  }
+	// if there is a next prompt
+	if (currentPrompt < prompts.length) {
+		// put first prompt in all html elements with class 
+		$('.prompt').html(prompts[currentPrompt] +'<br><input type="text">');
+		// move the next prompt into variable currentPrompt 
+		currentPrompt = currentPrompt + 1;
+	}
+	//or else if we're at the end of the array
+	else {
+		// put a new message into the html.
+		showFinal();
+	}
+}
+
+//puts user answers into HTML
+var showFinal = function() {
+  $('.prompt').html('<span class="fill">'+answers[2]+'</span> de <span class="fill">'+answers[0]+'</span> en de <span class="fill">'+answers[1]+'</span> voor <span class="fill">'+answers[3]+'</span>.');
+  $('button').hide();
+}
+// run nextPrompt function when button is clicked
+$('button').click(function() {
+	nextPrompt();
+});
+
+// Show the first prompt as soon as js loads
+nextPrompt();
+</script>
+
+</body>
